@@ -1,16 +1,21 @@
+<!--
+App.vue est le composant racine d'une application Vue
+-->
+
 <template>
-  <div id="app">
+  <div id="app"> <!-- Conteneur principal de l'application -->
     <h1>CRUD</h1>
-    <UsersList/>
+    <UsersList/> <!-- Inclusion du composant UsersList -->
   </div>
 </template>
 
 <script>
-/* Composants enfants */
+/* Importation des composants enfants */
 import UsersList from "./components/UsersList.vue";
 
 export default {
-  name:'App',
+  name:'App', // Nom du composant
+  // Composants enfants
   components: {
     UsersList
   }

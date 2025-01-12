@@ -1,3 +1,8 @@
+<!--
+Composant vue.js pour la liste des utilisateurs
+-->
+
+<!-- Contenu HTML généré dynamiquement -->
 <template>
   <div>
     <h1>Liste d'utilisateurs</h1>
@@ -55,28 +60,38 @@
   </div>
 </template>
 
+<!-- Logique de l'application -->
 <script>
+// Importation du module contenant les méthodes HTTP
 import api from '../api.js';
 
 export default {
+  /* Définition des données */
   data() {
     return {
-      users: [],
-      loading: false,
-      error: false,
-      newUser: {
+      users: [], // Initialisation liste des utilisateurs
+      loading: false, // Indicateur du chargement
+      error: false, // Indicateur d'erreur
+      newUser: { // Pour ajouter un nouvel utilisateur
         firstName: '',
         lastName: '',
       },
-      editingUser: {},
-      userDetails: {},
+      editingUser: {}, // Pour modifier un utilisateur
+      userDetails: {}, // Pour afficher les détails d'un utilisateur
     };
   },
+  /*
+  * Méthode du cycle de vie ("lifecycle hook")
+  * ==> exécute le composant lorsqu'il est monté dans le DOM
+  * https://www.w3schools.com/vue/ref_lh_mounted.php
+  */
   mounted() {
-    this.getUsers();
+    this.getUsers(); // Appel de la méthode getUsers() pour récupérer les utilisateurs
   },
-  methods: {
 
+  /* Définition des méthodes */
+  methods: {
+    /* Méthode pour récupérer la liste des utilisateurs */
     async getUsers() {
       this.loading = true;
       this.error = false;
@@ -91,6 +106,7 @@ export default {
       }
     },
 
+    /* Méthode pour obtenir les infos d'un utilisateur */
     async getOneUser(id) {
       try {
         const response = await api.getOneUser(id);
@@ -100,6 +116,7 @@ export default {
       }
     },
 
+    /* Méthode pour ajouter un nouvel utilisateur */
     async createUser() {
       try {
         const response = await api.createUser(this.newUser);
@@ -111,6 +128,7 @@ export default {
       }
     },
 
+    /* Méthode pour modifier un utilisateur */
     async updateUser() {
       try {
         const response = await api.updateUser(this.editingUser.id, this.editingUser);
@@ -122,6 +140,7 @@ export default {
       }
     },
 
+    /* Méthode pour supprimer un utilisateur */
     async deleteUser(id) {
       try {
         await api.deleteUser(id);
@@ -131,14 +150,17 @@ export default {
       }
     },
 
+    /* Méthode pour afficher les informations d'un utilisateur*/
     showUserDetails(id) {
       this.getOneUser(id);
     },
 
+    /* Méthode pour fermer le modal */
     closeUserDetails() {
       this.userDetails = {};
     },
 
+    /* Méthode pour instancier l'édition d'un utilisateur */
     editUser(user) {
       this.editingUser = { ...user };
     }

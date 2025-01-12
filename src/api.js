@@ -7,6 +7,8 @@ const api = axios.create({
     },
 });
 
+/* On défini dans le frontend les méthodes HTTP utilisées dans le backend */
+
 export default {
     getUsers(){
         return api.get('/users');

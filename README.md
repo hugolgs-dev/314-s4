@@ -29,3 +29,15 @@ bun install
 bun dev
 ```
 
+### Fichiers
+
+Localement, j'ai organisé les fichiers du projet comme ci-dessous. 
+Je ne sais pas si c'est important, mais je préfère quand même le préciser.
+
+```text
+projet 
+    |
+    |-- backend // le code de la semaine 2
+    |
+    |-- frontend // le code de la semaine 3
+```

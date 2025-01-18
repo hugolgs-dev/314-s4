@@ -48,6 +48,7 @@ Composant vue.js pour la liste des utilisateurs
     <EditUserForm
         v-if="editingUser"
         :user="editingUser"
+        :show-modal="!!editingUser"
         @edit-user="updateUser"
         @close="editingUser = null"
     />
@@ -83,7 +84,7 @@ export default {
         firstName: '',
         lastName: '',
       },
-      editingUser: {}, // Pour modifier un utilisateur
+      editingUser: null, // Pour modifier un utilisateur
       showDetails: false,
       selectedUser: null,
 
@@ -132,12 +133,10 @@ export default {
     },
 
     /* Méthode pour ajouter un nouvel utilisateur */
-    async createUser() {
+    async createUser(user) {
       try {
-        const response = await api.createUser(this.newUser);
+        const response = await api.createUser(user);
         this.users.push(response.data);
-        this.newUser.firstName = '';
-        this.newUser.lastName = '';
       } catch (error) {
         console.error('Erreur lors de la création de l\'utilisateur:', error);
       }
@@ -171,7 +170,7 @@ export default {
     /* Méthode pour instancier l'édition d'un utilisateur */
     editUser(user) {
       this.editingUser = { ...user };
-    }
+    },
   }
 };
 </script>

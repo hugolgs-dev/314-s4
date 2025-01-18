@@ -11,8 +11,8 @@
               <div class="form-group">
                 <input v-model="newUser.firstName" type="text" placeholder="Prénom" required />
                 <input v-model="newUser.lastName" type="text" placeholder="Nom" required />
-                <button type="submit" class="btn btn-primary">Ajouter</button>
-                <button @click="closeModal" type="button" class="btn btn-secondary">Fermer</button>
+                <button type="submit">Ajouter</button>
+                <button @click="closeModal" type="button">Fermer</button>
               </div>
             </form>
           </div>

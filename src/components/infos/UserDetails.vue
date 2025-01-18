@@ -25,13 +25,13 @@
       },
       showModal:{
         type:Boolean,
-        required:true
+        required:true,
       },
     },
     methods:{
       closeModal(){
         this.$emit('close');
-      },
+      }
     },
   };
 </script>

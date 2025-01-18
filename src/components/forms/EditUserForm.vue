@@ -23,21 +23,27 @@
     props:{
       user:{
         type:Object,
+        required: true,
+      },
+      showModal:{
+        type:Boolean,
         required:true,
       },
     },
     data(){
       return {
-        showModal: false,
+        user: {
+          firstName: '',
+          lastName: '',
+        },
       };
     },
     methods:{
       submitForm(){
         this.$emit('edit-user', this.user);
-        this.showModal = false;
+        this.closeModal();
       },
       closeModal(){
-        this.showModal = false;
         this.$emit('close');
       }
     }

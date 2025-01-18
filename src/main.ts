@@ -1,6 +1,6 @@
 /* Point d'entrée de l'application */
 
-import './assets/main.css'
+import './assets/main.scss'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'

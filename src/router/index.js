@@ -11,7 +11,7 @@ import UsersList from '@/components/UsersList.vue'; // importation du composant
 
 // Déclaration des routes
 const routes = [
-    { path: '/users', name: 'Users', component: UsersList },
+    { path: '/', name: 'Users', component: UsersList },
 ];
 
 // Création de l'instance du routeur

@@ -42,34 +42,23 @@ Composant vue.js pour la liste des utilisateurs
     </ul>
 
     <!-- Ajouter un utilisateur -->
-    <h2>Ajouter un utilisateur</h2>
-    <form @submit.prevent="createUser">
-      <div class="form-group">
-        <input v-model="newUser.firstName" type="text" placeholder="Prénom" required />
-        <input v-model="newUser.lastName" type="text" placeholder="Nom" required />
-        <button type="submit" class="btn btn-primary">Ajouter</button>
-      </div>
-    </form>
+    <AddUserForm @add-user="createUser" />
 
     <!-- Modifier utilisateur -->
-    <div v-if="editingUser">
-      <h2>Modifier l'utilisateur</h2>
-      <form @submit.prevent="updateUser">
-        <div class="form-group">
-          <input v-model="editingUser.firstName" placeholder="Prénom" type="text" required />
-          <input v-model="editingUser.lastName" placeholder="Nom" type="text" required />
-          <button type="submit" class="btn btn-primary">Modifier</button>
-        </div>
-      </form>
-    </div>
+    <EditUserForm
+        v-if="editingUser"
+        :user="editingUser"
+        @edit-user="updateUser"
+        @close="editingUser = null"
+    />
 
     <!-- Afficher détails d'un utilisateur -->
-    <div v-if="userDetails">
-      <h2>Détails de l'utilisateur</h2>
-      <p>Prénom: {{ userDetails.firstName }}</p>
-      <p>Nom: {{ userDetails.lastName }}</p>
-      <button @click="closeUserDetails" class="btn btn-primary">Fermer</button>
-    </div>
+    <UserDetails
+        v-if="showDetails"
+        :user="selectedUser"
+        :show-modal="showDetails"
+        @close="closeUserDetails"
+    />
 
   </div>
 </template>
@@ -80,9 +69,10 @@ Composant vue.js pour la liste des utilisateurs
 import api from '../api.js';
 import AddUserForm from "@/components/forms/AddUserForm.vue";
 import EditUserForm from "@/components/forms/EditUserForm.vue";
+import UserDetails from "@/components/infos/UserDetails.vue";
 
 export default {
-  components: { AddUserForm, EditUserForm },
+  components: { AddUserForm, EditUserForm, UserDetails },
   /* Définition des données */
   data() {
     return {
@@ -94,7 +84,9 @@ export default {
         lastName: '',
       },
       editingUser: {}, // Pour modifier un utilisateur
-      userDetails: {}, // Pour afficher les détails d'un utilisateur
+      showDetails: false,
+      selectedUser: null,
+
     };
   },
   /*
@@ -124,13 +116,19 @@ export default {
     },
 
     /* Méthode pour obtenir les infos d'un utilisateur */
-    async getOneUser(id) {
+    async showUserDetails(id) {
       try {
-        const response = await api.getOneUser(id);
-        this.userDetails = response.data;
+        const response = await api.getOneUser(id); // Fetch user details by ID
+        this.selectedUser = response.data; // Assign response to selectedUser
+        this.showDetails = true;
       } catch (error) {
         console.error('Erreur lors de la récupération des détails de l\'utilisateur:', error);
       }
+    },
+
+    closeUserDetails() {
+      this.showDetails = false;
+      this.selectedUser = null;
     },
 
     /* Méthode pour ajouter un nouvel utilisateur */
@@ -168,14 +166,7 @@ export default {
     },
 
     /* Méthode pour afficher les informations d'un utilisateur*/
-    showUserDetails(id) {
-      this.getOneUser(id);
-    },
 
-    /* Méthode pour fermer le modal */
-    closeUserDetails() {
-      this.userDetails = {};
-    },
 
     /* Méthode pour instancier l'édition d'un utilisateur */
     editUser(user) {

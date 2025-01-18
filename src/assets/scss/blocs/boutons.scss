@@ -1,0 +1,25 @@
+button{
+  background-color: $primary-color;
+  border-radius: 10px;
+  border: none;
+  padding: 10px 20px;
+  color: $white;
+  font-weight: bold;
+
+  &:hover{
+    cursor: pointer;
+  }
+
+  svg:hover{
+    cursor: pointer;
+  }
+
+}
+
+.card-btn{
+  padding: 5px 10px;
+  margin: 0 5px;
+
+  &:nth-of-type(2){background-color: $secondary-color}
+  &:nth-of-type(3){background-color: $alert}
+}

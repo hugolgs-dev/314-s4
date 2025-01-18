@@ -1,5 +1,5 @@
 <template>
-  <div class="add-user-form-wrapper">
+  <div class="modal-wrapper">
     <button @click="showModal = true">Ajouter un utilisateur</button>
     <div v-if="showModal" class="modal">
       <div class="modal-container">
@@ -7,13 +7,11 @@
           <h2 class="modal-title" >Ajouter un utilisateur</h2>
         </div>
           <div class="modal-body">
-            <form @submit.prevent="submitForm">
-              <div class="form-group">
+            <form @submit.prevent="submitForm" class="form-users form-add">
                 <input v-model="newUser.firstName" type="text" placeholder="Prénom" required />
                 <input v-model="newUser.lastName" type="text" placeholder="Nom" required />
                 <button type="submit">Ajouter</button>
                 <button @click="closeModal" type="button">Fermer</button>
-              </div>
             </form>
           </div>
       </div>

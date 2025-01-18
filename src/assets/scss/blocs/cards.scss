@@ -1,0 +1,24 @@
+.card-container{
+  display: flex;
+  flex-flow: row wrap;
+
+
+}
+
+.card-item{
+  border: $black solid 1px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.card-img{
+
+}
+
+.card-name{
+
+  text-align: center;
+  span{margin: auto 2px }
+  span:nth-child(1){color: $primary-color}
+  span:nth-child(2){color: $secondary-color}
+}

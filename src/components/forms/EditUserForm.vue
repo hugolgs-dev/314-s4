@@ -1,15 +1,15 @@
 <template>
-  <div class="edit-user-form-wrapper">
+  <div class="modal-wrapper">
     <div v-if="showModal" class="modal">
       <div class="modal-container">
         <div class="modal-header">
           <h2 class="modal-title">Modifier un utilisateur</h2>
         </div>
           <div class="modal-body">
-            <form @submit.prevent="submitForm">
+            <form @submit.prevent="submitForm" class="form-users form-edit" >
               <input v-model="user.firstName" type="text" placeholder="Prénom" required />
               <input v-model="user.lastName" type="text" placeholder="Nom" required />
-              <button type="submit" class="btn btn-primary">Modifier</button>
+              <button type="submit">Modifier</button>
               <button @click="closeModal" type="button" class="btn btn-secondary">Fermer</button>
             </form>
           </div>

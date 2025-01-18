@@ -3,10 +3,7 @@ App.vue est le composant racine d'une application Vue
 -->
 
 <template>
-  <div id="app"> <!-- Conteneur principal de l'application -->
-    <h1>CRUD</h1>
     <router-view/> <!-- Inclusion du composant UsersList -->
-  </div>
 </template>
 
 <script>

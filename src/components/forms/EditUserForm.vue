@@ -14,9 +14,9 @@
           <div class="modal-body">
             <form @submit.prevent="submitForm" class="form-users form-edit" >
               <label for="firstName">Prénom</label>
-              <input v-model="user.firstName" type="text" name="firstName" placeholder="Prénom" required />
+              <input v-model="user.firstName" type="text" name="firstName" required />
               <label for="lastName">Nom</label>
-              <input v-model="user.lastName" type="text" name="lastName" placeholder="Nom" required />
+              <input v-model="user.lastName" type="text" name="lastName" required />
               <button type="submit">Modifier</button>
             </form>
           </div>
@@ -37,17 +37,9 @@
         required:true,
       },
     },
-    data(){
-      return {
-        user: {
-          firstName: '',
-          lastName: '',
-        },
-      };
-    },
     methods:{
       submitForm(){
-        this.$emit('edit-user', this.user);
+        this.$emit('edit-user', { ...this.user });
         this.closeModal();
       },
       closeModal(){

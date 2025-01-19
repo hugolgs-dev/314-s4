@@ -15,9 +15,9 @@
           <div class="modal-body">
             <form @submit.prevent="submitForm" class="form-users form-add">
               <label for="firstName">Prénom</label>
-              <input v-model="newUser.firstName" type="text" name="firstName" placeholder="Prénom" required />
+              <input v-model="newUser.firstName" type="text" name="firstName" required />
               <label for="lastName">Nom</label>
-              <input v-model="newUser.lastName" type="text" name="lastName" placeholder="Nom" required />
+              <input v-model="newUser.lastName" type="text" name="lastName" required />
               <button type="submit">Ajouter</button>
             </form>
           </div>

@@ -58,13 +58,13 @@ Composant vue.js pour la liste des utilisateurs
 
 
       <!-- Modifier utilisateur -->
-      <EditUserForm
-          v-if="editingUser"
-          :user="editingUser"
-          :show-modal="!!editingUser"
-          @edit-user="updateUser"
-          @close="editingUser = null"
-      />
+     <EditUserForm
+         v-if="editingUser"
+         :user="editingUser"
+         :show-modal="!!editingUser"
+         @edit-user="updateUser"
+         @close="editingUser = null"
+     />
 
       <!-- Afficher détails d'un utilisateur -->
       <UserDetails
@@ -156,12 +156,12 @@ export default {
     },
 
     /* Méthode pour modifier un utilisateur */
-    async updateUser() {
+    async updateUser(updatedUser) {
       try {
-        const response = await api.updateUser(this.editingUser.id, this.editingUser);
-        const index = this.users.findIndex(user => user.id === this.editingUser.id);
+        const response = await api.updateUser(updatedUser.id, updatedUser);
+        const index = this.users.findIndex(user => user.id === updatedUser.id);
         this.users.splice(index, 1, response.data);
-        this.editingUser = {};
+        this.editingUser = null;
       } catch (error) {
         console.error('Erreur lors de la mise à jour de l\'utilisateur:', error);
       }

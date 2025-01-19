@@ -32,21 +32,27 @@
   //border: 5px solid yellow;
   background-color: $white;
   border-radius: 10px;
+  width: 500px;
+  height: 600px;
 }
 .modal-header{
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+
+  margin: 15px 17px;
   //border: 5px solid purple;
 }
 
 .modal-title{
-  text-align: center;
+  text-align: right;
+  font-weight: bold;
   //border: 5px solid black;
 }
 
 .modal-close{
-  //align-self: flex;
+  margin-left: auto;
+  color: red;
 }
 
 .modal-body{

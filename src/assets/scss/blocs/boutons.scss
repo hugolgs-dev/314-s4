@@ -1,16 +1,15 @@
 button{
   background-color: $primary-color;
   border-radius: 10px;
-  border: solid 1px $dark-color;
+  border: solid 1px transparent;
   padding: 10px 20px;
   color: $white;
   font-weight: bold;
-
+  @include animer;
   &:hover{
     cursor: pointer;
     @include animer;
     transform: scale(1.05);
-    border-color: $white;
   }
 
 }
@@ -19,7 +18,7 @@ button{
   background-color: $white;
   padding: 5px 10px;
   margin: 0 5px;
-
+  border-radius: 1000px;
   svg{color: $black;}
 
   &:hover{

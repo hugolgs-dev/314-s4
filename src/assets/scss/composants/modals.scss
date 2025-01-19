@@ -1,24 +1,60 @@
 .modal-wrapper{
+  //border: 5px solid red;
+  width: 600px;
+  height: auto;
 
+  position: relative;
+
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
 }
 
 .modal{
+  width: 100vw;
+  height: 100vh;
+  //border: 5px solid blue;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 
 }
 
 .modal-container{
   color: $primary-color;
+  //border: 5px solid yellow;
+  background-color: $white;
+  border-radius: 10px;
 }
 .modal-header{
-
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  //border: 5px solid purple;
 }
 
 .modal-title{
   text-align: center;
+  //border: 5px solid black;
+}
+
+.modal-close{
+  //align-self: flex;
+  :hover, svg:hover, path:hover{cursor: pointer}
 }
 
 .modal-body{
+  //border: 5px solid orange;
+  padding: 5px 20px;
 
+  input:hover{cursor: text}
 }
 
 

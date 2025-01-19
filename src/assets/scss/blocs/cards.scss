@@ -2,21 +2,24 @@
   display: flex;
   flex-flow: row wrap;
 
-  justify-content: space-around;
-
+  justify-content: flex-start;
+  align-content: flex-start;
 }
 
 .card-item{
-  border: $black solid 1px;
+  border: $white solid 1px;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.20);
-
+  box-shadow: 0 0 10px 5px rgba(0,0,0,0.20);
+  @include animer;
+  margin: 15px;
 
   &:hover{
     @include animer;
     transform: scale(1.1);
-    border-color: $white;
-    box-shadow: 0px 0px 50px 5px $white;
+    border-color: $black;
+    .card-body{
+      @include animer;
+      background-color: $primary-color;}
   }
 }
 
@@ -35,12 +38,12 @@
 .card-body{
   background-color: $dark-color;
   border-radius: 10px;
+  padding: 10px;
 }
 
 .card-name{
 
   text-align: center;
   span{margin: auto 2px }
-  span:nth-child(1){color: $primary-color}
-  span:nth-child(2){color: $secondary-color}
+  color: $white;
 }

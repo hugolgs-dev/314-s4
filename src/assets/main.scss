@@ -1,7 +1,5 @@
 @import './scss/responsive';
 
-@import './base.scss';
-
 /* Éléments globaux */
 @import './scss/global/general.scss';
 @import './scss/global/app.scss';
@@ -19,7 +17,8 @@
 
 /* Composants */
 @import './scss/composants/formulaires.scss';
-@import "./scss/composants/modals.scss";
+@import './scss/composants/modals.scss';
+@import './scss/composants/mouse.scss';
 
 /* Pages */
 @import './scss/pages/users_list.scss';

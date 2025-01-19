@@ -1,14 +1,16 @@
 #users-list{
-  .add-user-btn{
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-
-    margin-top: 50px;
-  }
+  width: 100%;
+  margin: auto;
 
   h1{
     text-align: center;
   }
 }
 
+.add-user{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+}

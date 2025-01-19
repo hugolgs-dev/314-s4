@@ -1,14 +1,28 @@
 .form-users{
 
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
+  justify-content: center;
 
+  margin: auto 10%;
 
-  &input{
-
+  button{
+    margin: 15px 20px;
   }
 
-  &button{
+  input{
+    border: 1px solid $primary-color;
+    border-radius: 10px;
+
+    @include animer;
+
+    &:hover{
+      @include animer;
+      transform: scale(1.05);
+    }
+  }
+
+  label{
 
   }
 }

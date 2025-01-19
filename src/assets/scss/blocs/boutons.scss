@@ -7,7 +7,6 @@ button{
   font-weight: bold;
   @include animer;
   &:hover{
-    cursor: pointer;
     @include animer;
     transform: scale(1.05);
   }
@@ -38,7 +37,7 @@ button{
   }
 
   svg:hover, path:hover{
-    cursor: pointer;
+    //cursor: pointer;
   }
 
 }

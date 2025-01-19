@@ -1,3 +1,30 @@
+*{
+  cursor: none;
+}
+
+.cursor-circle{
+  position:absolute;
+  width:30px;
+  height:30px;
+  border: 1px solid $primary-color;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+
+.cursor-dot{
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: $primary-color;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50, -50%);
+  z-index: 1000;
+}
+
+
 .shadow-box{
   position: absolute;
   box-shadow: 0 0 50px 30px  $primary-color;

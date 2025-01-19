@@ -23,7 +23,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 800;
 
 }
 
@@ -47,14 +47,12 @@
 
 .modal-close{
   //align-self: flex;
-  :hover, svg:hover, path:hover{cursor: pointer}
 }
 
 .modal-body{
   //border: 5px solid orange;
   padding: 5px 20px;
 
-  input:hover{cursor: text}
 }
 
 

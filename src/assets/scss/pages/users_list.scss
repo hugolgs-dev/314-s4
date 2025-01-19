@@ -1,7 +1,14 @@
-.add-user-btn{
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
+#users-list{
+  .add-user-btn{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
 
-  margin-top: 50px;
+    margin-top: 50px;
+  }
+
+  h1{
+    text-align: center;
+  }
 }
+

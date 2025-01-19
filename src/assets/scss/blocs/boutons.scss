@@ -1,25 +1,45 @@
 button{
   background-color: $primary-color;
   border-radius: 10px;
-  border: none;
+  border: solid 1px $dark-color;
   padding: 10px 20px;
   color: $white;
   font-weight: bold;
 
   &:hover{
     cursor: pointer;
-  }
-
-  svg:hover{
-    cursor: pointer;
+    @include animer;
+    transform: scale(1.05);
+    border-color: $white;
   }
 
 }
 
 .card-btn{
+  background-color: $white;
   padding: 5px 10px;
   margin: 0 5px;
 
-  &:nth-of-type(2){background-color: $secondary-color}
-  &:nth-of-type(3){background-color: $alert}
+  svg{color: $black;}
+
+  &:hover{
+    @include animer;
+    svg{color: $white;}
+    border-color: $white;
+
+    &:nth-of-type(1){
+    background-color: $primary-color;
+    }
+    &:nth-of-type(2){
+    background-color: $secondary-color;
+    }
+    &:nth-of-type(3){
+    background-color: $alert;
+    }
+  }
+
+  svg:hover, path:hover{
+    cursor: pointer;
+  }
+
 }
